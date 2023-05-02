@@ -1,19 +1,19 @@
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import React from "react";
 import logo from "/logo-food-red.png";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const FoodNavbar = () => {
   return (
     <div>
       <Navbar fluid={true} rounded={true}>
         <div>
-          <Link to="/" className="flex justify-center flex-col">
+          <NavLink to="/" className="flex justify-center flex-col">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white hidden lg:block">
               Canadian
             </span>
             <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-          </Link>
+          </NavLink>
         </div>
         <div className="flex md:order-2">
           <Button> Login </Button>
