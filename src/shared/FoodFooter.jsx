@@ -26,15 +26,17 @@ const FoodFooter = () => {
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col={true}>
-                <Footer.Link href="#">Flowbite</Footer.Link>
-                <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                <Footer.Link href="#">About Us</Footer.Link>
+                <Footer.Link href="#">Chefs </Footer.Link>
+                <Footer.Link href="#">Foods</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col={true}>
-                <Footer.Link href="#">Github</Footer.Link>
+                <Footer.Link href="#">Facebook</Footer.Link>
                 <Footer.Link href="#">Discord</Footer.Link>
+                <Footer.Link href="#">LinkedIn</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
@@ -48,7 +50,7 @@ const FoodFooter = () => {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-center">
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+          <Footer.Copyright href="#" by="Numan Ahmed™" year={2023} />
           
         </div>
       </div>
