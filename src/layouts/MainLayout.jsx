@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import FoodNavbar from '../shared/FoodNavbar';
 
 const MainLayout = () => {
     return (
         <div>
-            <h1>Main Layout</h1>
+            <FoodNavbar />
             <Outlet />
         </div>
     );
