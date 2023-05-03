@@ -45,7 +45,7 @@ const FoodNavbar = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <NavLink to="/" active={true}>
+          <NavLink to="/">
             Home
           </NavLink>
           <NavLink to="/services">Services</NavLink>
