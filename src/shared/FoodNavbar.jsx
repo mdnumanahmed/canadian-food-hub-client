@@ -1,9 +1,19 @@
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "/logo-food-red.png";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const FoodNavbar = () => {
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleSignOut = () => {
+    logOut()
+    .then()
+    .catch(error => {
+      console.log(error.message);
+    })
+  }
   return (
     <div>
       <Navbar fluid={true} rounded={true}>
@@ -16,9 +26,10 @@ const FoodNavbar = () => {
           </NavLink>
         </div>
         <div className="flex md:order-2">
-          <Button> <Link to='/login'>Login</Link></Button>
-          <Button> Sign Out </Button>
-          <Dropdown
+          {
+            !user ?  <Button> <Link to='/login'>Login</Link></Button> 
+            : ( <> <Button onClick={handleSignOut}> Sign Out </Button> 
+            <Dropdown
             arrowIcon={false}
             inline={true}
             label={
@@ -42,6 +53,11 @@ const FoodNavbar = () => {
             <Dropdown.Divider />
             <Dropdown.Item>Sign out</Dropdown.Item>
           </Dropdown>
+          </>
+            )
+          
+          }        
+          
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>

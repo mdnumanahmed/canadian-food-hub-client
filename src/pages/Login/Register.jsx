@@ -48,7 +48,6 @@ const Register = () => {
             name="name"
             type="text"
             required={true}
-            color={user ? "success" : "failure"}
           />
         </div>
         <div>
@@ -61,7 +60,6 @@ const Register = () => {
             name="photoUrl"
             type="text"
             required={true}
-            color={user ? "success" : "failure"}
           />
         </div>
         <div>
@@ -74,7 +72,6 @@ const Register = () => {
             type="email"
             placeholder="example@gmail.com"
             required={true}
-            color={user ? "success" : "failure"}
           />
         </div>
         <div>
@@ -87,7 +84,6 @@ const Register = () => {
             type="password"
             placeholder="123456"
             required={true}
-            color={user ? "success" : "failure"}
           />
         </div>
         <div>
@@ -103,7 +99,6 @@ const Register = () => {
             type="password"
             placeholder="123456"
             required={true}
-            color={user ? "success" : "failure"}
           />
         </div>
         <div className="flex items-center gap-2">

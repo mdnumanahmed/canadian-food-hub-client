@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const [error, setError] = useState("");
-    const { user, signIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,7 +24,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const createdUser = result.user;
-        console.log(createdUser);
+        navigate(from, {replace: true})
       })
       .catch((error) => {
         setError(error.message);
@@ -40,7 +44,6 @@ const Login = () => {
             type="email"
             placeholder="example@gmail.com"
             required={true}
-            color={email ? "success" : "failure"}
           />
         </div>
         <div>
@@ -53,7 +56,6 @@ const Login = () => {
             type="password"
             placeholder="123456"
             required={true}
-            color={password ? "success" : "failure"}
           />
         </div>
         <div className="flex items-center gap-2">
