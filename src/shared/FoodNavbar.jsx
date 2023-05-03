@@ -1,7 +1,7 @@
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 import React from "react";
 import logo from "/logo-food-red.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const FoodNavbar = () => {
   return (
@@ -16,7 +16,7 @@ const FoodNavbar = () => {
           </NavLink>
         </div>
         <div className="flex md:order-2">
-          <Button> Login </Button>
+          <Button> <Link to='/login'>Login</Link></Button>
           <Button> Sign Out </Button>
           <Dropdown
             arrowIcon={false}
