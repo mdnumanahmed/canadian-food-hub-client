@@ -25,6 +25,10 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    const updateUserData = (createdUser, name, photo ) => {
+        return updateProfile(createdUser, {displayName: name, photoURL: photo})
+    }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (loggedUser)=>{
             setUser(loggedUser)
@@ -39,7 +43,8 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signIn,
-        logOut
+        logOut,
+        updateUserData
     }
 
     return (
