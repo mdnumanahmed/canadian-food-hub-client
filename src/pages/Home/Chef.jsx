@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleChef from './SingleChef';
+import Spinner from '../../shared/Spinner';
 
 const Chef = () => {
     const allChef = useLoaderData()
     return (
-        <section className='py-20'>
+        <section className='py-20 bg-green-50'>
             <div className="chef-area container mx-auto">
                 <div className="sec-title text-center mb-8">
                     <h4 className='text-xl font-bold'>Our Chefs</h4>

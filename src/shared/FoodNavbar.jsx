@@ -6,7 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const FoodNavbar = () => {
   const {user, logOut} = useContext(AuthContext)
-
+  console.log(user);
   const handleSignOut = () => {
     logOut()
     .then()
@@ -16,7 +16,7 @@ const FoodNavbar = () => {
   }
   return (
     <div>
-      <Navbar fluid={true} rounded={true}>
+      <Navbar fluid={true} rounded={true} className=" bg-slate-100 border border-teal-200 border-b-2">
         <div>
           <NavLink to="/" className="flex justify-center flex-col">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white hidden lg:block">
@@ -34,10 +34,10 @@ const FoodNavbar = () => {
             inline={true}
             label={
               <Avatar
-              title={user?.displayName}
+                title={user?.displayName}
                 className="ml-3"
                 alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                img={user?.photoURL}
                 rounded={true}
               />
             }

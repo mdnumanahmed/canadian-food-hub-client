@@ -3,15 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
-  const { id, chef_img, chef_name, experience, numbers_of_recipes, likes } =
-    chef;
-    console.log(id, chef);
+  const { id, chef_img, chef_name, experience, numbers_of_recipes, likes } = chef;
+  
   return (
     <Card>
       <div className="flex flex-col items-center pb-10">
         <img
           className="mb-3 h-28 w-28 rounded-md shadow-lg"
-          src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+          src={chef_img}
           alt="Bonnie image"
         />
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">

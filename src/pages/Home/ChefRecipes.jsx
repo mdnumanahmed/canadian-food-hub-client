@@ -4,6 +4,7 @@ import ChefRecipeHeader from "./ChefRecipeHeader";
 import SingleRecipe from "./SingleRecipe";
 
 const ChefRecipes = () => {
+  const recipeByChef = useLoaderData();
   const [chef, setChef] = useState({});
   const { id } = useParams();
 
@@ -12,12 +13,10 @@ const ChefRecipes = () => {
       .then((res) => res.json())
       .then((data) => {
         const findChef = data.find((ch) => ch.id == id);
-        console.log(findChef);
         setChef(findChef);
       });
   }, []);
-
-  const recipeByChef = useLoaderData();
+  
   return (
     <section>
       <div>

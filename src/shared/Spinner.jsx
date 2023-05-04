@@ -3,7 +3,7 @@ import loader from '../assets/loader.gif'
 
 const Spinner = () => {
     return (
-        <div>
+        <div className='flex justify-center items-center bg-white min-h-screen'>
             <img src={loader} alt="" />
         </div>
     );

@@ -1,26 +1,28 @@
 import { Footer } from "flowbite-react";
 import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const FoodFooter = () => {
   return (
-    <Footer container={true}>
+    <Footer container={true} className=" bg-slate-100 border border-teal-200 border-t-2 mt-8">
       <div className="w-full">
         <div className="grid w-full ">
           
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-4 sm:gap-6">
           <div>
             <Footer.Brand
-              href="https://flowbite.com"
-              src="https://flowbite.com/docs/images/logo.svg"
+              name=""
+              href="#"
+              src="/logo-food-red.png"
               alt="Flowbite Logo"
-              name="Flowbite"
             />
-            <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            {/* <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsGithub} />
-            <Footer.Icon href="#" icon={BsDribbble} /> */}
+            <p className="mb-4">Canadian Food Hub</p>
+            <div className="mt-8 flex space-x-6  sm:mt-0 sm:justify-center md:justify-start">
+            <Footer.Icon href="#" icon={FaFacebook} />
+            <Footer.Icon href="#" icon={FaInstagram} />
+            <Footer.Icon href="#" icon={FaTwitter} />
+            <Footer.Icon href="#" icon={FaLinkedinIn} />
+            <Footer.Icon href="#" icon={FaGithub} />
           </div>
           </div>
             <div>

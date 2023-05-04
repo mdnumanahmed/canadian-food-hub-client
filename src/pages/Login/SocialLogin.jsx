@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { githubSignIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     googleSignIn()
     .then(result => {
-        console.log(result.user);
+        const loggedUser = result.user;
+        navigate(from, { replace: true });
     })
     .catch(error => {
         console.log(error.message);
@@ -17,7 +22,8 @@ const SocialLogin = () => {
   const handleGithubSignIn = () => {
     githubSignIn()
     .then(result => {
-        console.log(result.user);
+      const loggedUser = result.user;
+      navigate(from, { replace: true });
     })
     .catch(error => {
         console.log(error.message);
@@ -28,7 +34,7 @@ const SocialLogin = () => {
       <button
       onClick={handleGoogleSignIn}
         type="button"
-        class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+        className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
       >
         <svg
           class="w-4 h-4 mr-2 -ml-1"
@@ -50,7 +56,7 @@ const SocialLogin = () => {
       <button
       onClick={handleGithubSignIn}
         type="button"
-        class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
+        className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
       >
         <svg
           class="w-4 h-4 mr-2 -ml-1"
