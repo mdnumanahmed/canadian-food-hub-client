@@ -34,6 +34,7 @@ const FoodNavbar = () => {
             inline={true}
             label={
               <Avatar
+              title={user?.displayName}
                 className="ml-3"
                 alt="User settings"
                 img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"

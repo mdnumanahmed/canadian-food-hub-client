@@ -1,39 +1,39 @@
-import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { signIn } = useContext(AuthContext);
 
-    const [error, setError] = useState("");
-    const { signIn } = useContext(AuthContext);
-
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
-    setError('')
+    setError("");
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
     console.log(email, password);
-    
+
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, {replace: true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
       });
   };
-    return (
-        <div className="container mx-auto w-3/4 md:w-2/5 p-3 md:p-8 rounded-lg shadow-lg bg-slate-200">
+  return (
+    <div className="container mx-auto w-3/4 md:w-2/5 p-3 md:p-8 rounded-lg shadow-lg bg-slate-200">
       <h2 className="text-2xl text-center">Please Login</h2>
-      <form onSubmit={handleLogin} className="flex flex-col gap-4">        
+      <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email" color="success" value="Your name" />
@@ -71,11 +71,19 @@ const Login = () => {
           </Label>
         </div>
         <Button type="submit">Login</Button>
-        <p className='text-center'>Are You First in FoodHub? <Link to='/register' className='font-bold'>Register</Link></p>
-        <p className='text-center text-red-600'>{error && error}</p>
+        <p className="text-center">
+          Are You First in FoodHub?{" "}
+          <Link to="/register" className="font-bold">
+            Register
+          </Link>
+        </p>
+        <p className="text-center text-lg text-red-600">{error && error}</p>
       </form>
+      <div>
+        <SocialLogin />
+      </div>
     </div>
-    );
+  );
 };
 
 export default Login;
