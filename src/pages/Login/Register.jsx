@@ -20,6 +20,16 @@ const Register = () => {
 
     console.log(name, photo, email, password, confirmPassword);
 
+    if(email.length === 0){
+      setError('Email Field is required!')
+      return;
+    }
+
+    if(password.length < 6){
+      setError('Password length should be more than six characters')
+      return
+    }
+
     if (password !== confirmPassword) {
       setError("Both password not matched");
     }

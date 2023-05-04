@@ -23,7 +23,7 @@ const Login = () => {
     
     signIn(email, password)
       .then((result) => {
-        const createdUser = result.user;
+        const loggedUser = result.user;
         navigate(from, {replace: true})
       })
       .catch((error) => {
@@ -72,7 +72,7 @@ const Login = () => {
         </div>
         <Button type="submit">Login</Button>
         <p className='text-center'>Are You First in FoodHub? <Link to='/register' className='font-bold'>Register</Link></p>
-        <p>{error && error}</p>
+        <p className='text-center text-red-600'>{error && error}</p>
       </form>
     </div>
     );
