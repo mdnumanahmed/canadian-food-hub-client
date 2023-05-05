@@ -5,7 +5,7 @@ const Foods = () => {
     const [foods, setFoods] = useState([])
 
     useEffect(()=>{
-        fetch('https://canadian-food-hub-server-mdnumanahmed.vercel.app/recipe')
+        fetch('https://canadian-food-hub-server.vercel.app/recipe')
         .then(res => res.json())
         .then(data => {
             const slicedData = data.filter(d => d.id < 9)
