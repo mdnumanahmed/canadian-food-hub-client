@@ -1,18 +1,22 @@
 import { Card } from "flowbite-react";
 import React from "react";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
-  const { id, chef_img, chef_name, experience, numbers_of_recipes, likes } = chef;
-  
+  const { id, chef_img, chef_name, experience, numbers_of_recipes, likes } =
+    chef;
+
   return (
     <Card>
       <div className="flex flex-col items-center pb-10">
-        <img
-          className="mb-3 h-28 w-28 rounded-md shadow-lg"
-          src={chef_img}
-          alt="Bonnie image"
-        />
+        <LazyLoad height={200}>
+          <img
+            className="mb-3 h-28 w-28 rounded-md shadow-lg"
+            src={chef_img}
+            alt="Bonnie image"
+          />
+        </LazyLoad>
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
           {chef_name}
         </h5>
@@ -35,7 +39,7 @@ const SingleChef = ({ chef }) => {
             href="#"
             className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
           >
-           Favorite {likes}
+            Favorite {likes}
           </a>
         </div>
       </div>

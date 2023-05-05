@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleChef from './SingleChef';
-import Spinner from '../../shared/Spinner';
 
 const Chef = () => {
     const allChef = useLoaderData()
