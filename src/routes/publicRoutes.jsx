@@ -11,7 +11,7 @@ import Foods from "../pages/Foods/Foods";
 import Blogs from "../pages/Blogs/Blogs";
 import Services from "../pages/Services/Services";
 
-// http://localhost:5000
+// https://canadian-food-hub-server-mdnumanahmed.vercel.app
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: ()=>fetch('http://localhost:5000/chef')
+                loader: ()=>fetch('https://canadian-food-hub-server-mdnumanahmed.vercel.app/chef')
             },
             {
                 path: 'register',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path: 'chef/:id',
                 element: <PrivateRoute><ChefRecipes /></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({params})=> fetch(`https://canadian-food-hub-server-mdnumanahmed.vercel.app/chef/${params.id}`)
             },
             {
                 path: 'services',
