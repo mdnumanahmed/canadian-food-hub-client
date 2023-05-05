@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const [error, setError] = useState("");
 
-  const { user, createUser, updateUserData } = useContext(AuthContext);
+  const { setUser, createUser, updateUserData } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -40,10 +40,11 @@ const Register = () => {
         console.log(createdUser);
         updateUserData(createdUser, name, photo)
         .then(()=>{
+          setUser(createdUser)
           console.log(displayName, photoUrl);
         })
         .catch(error => {
-          console.log(error.message);
+          setError(error.message);
         })
       })
       .catch((error) => {

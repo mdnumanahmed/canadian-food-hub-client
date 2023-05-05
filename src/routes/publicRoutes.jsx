@@ -11,6 +11,7 @@ import Foods from "../pages/Foods/Foods";
 import Blogs from "../pages/Blogs/Blogs";
 import Services from "../pages/Services/Services";
 
+// http://localhost:5000
 const router = createBrowserRouter([
     {
         path: '/',
